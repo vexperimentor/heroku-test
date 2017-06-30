@@ -1,4 +1,4 @@
-var gulp = require('gulp'),
+var gulp = require('gulp');
 var gutil = require('gulp-util');
 var concat = require('gulp-concat');
 var sourcemaps = require('gulp-sourcemaps');
@@ -86,7 +86,7 @@ gulp.task('clean', function() {
 });
 
 gulp.task('fix-paths', function() {
-    gulp.src('frontend/dist/corecss.css')
+    return gulp.src('frontend/dist/corecss.css')
         .pipe(replace('../', '/dist/'))
         .pipe(gulp.dest('dist'));
 }); 
@@ -118,8 +118,4 @@ gulp.task('concat-min', function () {
     .pipe(gulp.dest('dist'))
 });
 
-gulp.task('build', function() {
-  gulp.start('concat-min');
-  gulp.start('copy-assets');
-  gulp.start('fix-paths');
-});
+gulp.task('build', ['concat-min', 'copy-assets', 'fix-paths']);
