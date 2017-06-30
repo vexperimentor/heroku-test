@@ -1,1 +1,2 @@
-# heroku-test
+# Dynos
+Dynamic text editor
