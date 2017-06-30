@@ -118,7 +118,7 @@ gulp.task('concat-min', function () {
     .pipe(gulp.dest('dist'))
 });
 
-gulp.task('default', function() {
+gulp.task('build', function() {
   gulp.start('concat-min');
   gulp.start('copy-assets');
   gulp.start('fix-paths');
