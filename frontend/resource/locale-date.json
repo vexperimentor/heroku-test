@@ -1,0 +1,24 @@
+{
+	"_default": "en",
+	"en": {
+		"name": "United States"
+	},
+	"en-gb": {
+		"name": "United Kingdom"
+	},
+	"zh-cn": {
+		"name": "Chinese"
+	},
+	"fr-ch": {
+		"name": "Swiss"
+	},
+	"hi": {
+		"name": "Hindi"
+	},
+	"ko": {
+		"name": "Korean"
+	},
+	"fr": {
+		"name": "French"
+	}
+}

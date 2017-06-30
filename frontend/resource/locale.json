@@ -1,0 +1,101 @@
+{	
+	"_default": {
+		"delimiters": {
+			"thousands": ",",
+			"demical": "."
+		},
+		"abbreviations": {
+			"thousand": "k",
+			"million": "m",
+			"billion": "b",
+			"trillion": "t"
+		},
+		"currency": {
+			"symbol": "$"
+		}
+	},
+	"en": {
+		"name": "United States"
+	},
+	"fr": {
+		"name": "French"
+	},
+	"be-nl": {
+		"name": "Belgium-Dutch"
+	},
+	"chs": {
+		"name": "Simplied Chinese"
+	},
+	"cs": {
+		"name": "Czech"
+	},
+	"da-dk": {
+		"name": "Danish Denmark"
+	},
+	"de-ch": {
+		"name": "German In Switzerland"
+	},
+	"de": {
+		"name": "German"
+	},
+	"uk": {
+		"name": "English United Kingdom"
+	},
+	"es-ES": {
+		"name": "Spanish Spain"
+	},
+	"es": {
+		"name": "Spanish"
+	},
+	"et": {
+		"name": "Estonian"
+	},
+	"fi": {
+		"name": "Finnish"
+	},
+	"fr-CA": {
+		"name": "French - Canada"
+	},
+	"fr-ch": {
+		"name": "French"
+	},
+	"hu": {
+		"name": "Hungarian"
+	},
+	"it": {
+		"name": "Italian Italy"
+	},
+	"ja": {
+		"name": "Japanese"
+	},
+	"nl-nl": {
+		"name": "Netherlands-Dutch"
+	},
+	"pl": {
+		"name": "Polish"
+	},
+	"pt-br": {
+		"name": "Portuguese Brazil"
+	},
+	"pt-pt": {
+		"name": "Portuguese"
+	},
+	"ru-UA": {
+		"name": "Russian For The Ukraine"
+	},
+	"ru": {
+		"name": "Russian"
+	},
+	"sk": {
+		"name": "Slovak"
+	},
+	"th": {
+		"name": "Thai"
+	},
+	"tr": {
+		"name": "Turkish"
+	},
+	"uk-UA": {
+		"name": "Ukrainian For The Ukraine"
+	}
+}
