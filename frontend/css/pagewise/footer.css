@@ -1,0 +1,18 @@
+#dyn-footer{
+	background-color: #333;
+	text-align: center;
+	padding: 20px;
+	line-height: 26px;
+}
+#dyn-footer .copyright{
+	letter-spacing: 1.5px;
+	color: #eee;
+}
+#dyn-footer .links {
+	color: #39AEE2;
+	letter-spacing: 1.2px;
+}
+#dyn-footer .links > a{
+	color: #39AEE2;
+	text-decoration: none;
+}

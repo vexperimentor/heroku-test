@@ -1,0 +1,33 @@
+textarea.dyn-var-input-control {
+	display: inline-block;
+	width: auto;
+	resize: none;
+}
+textarea.dyn-var-input-control~button.action-okay {
+	vertical-align: top;
+}
+textarea.dyn-var-input-control~button.action-cancel {
+	vertical-align: top;
+}
+
+.var-clickable.mimic-pre{
+	white-space: pre-line;
+}
+
+b.var-default-mimic-pre{
+	display: block;
+    line-height: 15px;
+    margin-bottom: 2px;
+    padding-left: 3px;
+    vertical-align: top;
+    white-space: pre;
+}
+.inline:not(.dyn-var-input-control) {
+	display: inline-block !important;
+}
+
+.slider-control > div {
+	display: inline-block;
+	margin: 0px 10px;
+	width: 200px !important;
+}

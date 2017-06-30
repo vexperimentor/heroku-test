@@ -1,0 +1,18 @@
+.form-group .select2-container {
+  position: relative;
+  z-index: 2;
+  float: left;
+  width: 100% !important;
+  margin-bottom: 0;
+  display: table;
+  table-layout: fixed;
+}
+.select2-container--default .select2-selection--multiple .select2-selection__choice{
+	padding: 5px 5px !important;
+}
+.select2-container--default .select2-selection--multiple{
+	border: 1px solid #ccc !important;
+}
+.select2-container .select2-selection--multiple{
+	min-height: 43px !important;
+}

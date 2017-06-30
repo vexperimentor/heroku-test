@@ -1,0 +1,57 @@
+.dyn-gallery .item-box {
+  position: relative;
+  cursor: pointer;
+}
+
+.dyn-gallery .item-box .item-box-desc small {
+  display: inline-block;
+  text-align: right;
+  width: 80px;
+}
+
+.dyn-gallery .item-box .item-box-desc {
+  padding: 0px;
+}
+
+.dyn-gallery .item-box .item-box-desc .content {
+  padding: 10px 20px;
+}
+.dyn-gallery .gallery-featured .item-box .item-box-desc .content {
+  background-color: #2E363F;
+  color: white;
+}
+.dyn-gallery .gallery-public .item-box .item-box-desc .content {
+  border-bottom: 1px solid #ddd;
+}
+
+.dyn-gallery .item-box .item-box-desc .settings {
+  padding: 10px 20px;
+}
+
+.dyn-gallery .item-box .action-box {
+  position: absolute;
+  background: rgba(46,54,63,0.8);
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px 20px;
+  visibility: hidden;
+}
+.dyn-gallery .item-box:hover .action-box {
+  visibility: visible;
+}
+.dyn-gallery .item-box .action-box a {
+  color: white;
+}
+
+.dyn-gallery .widget h4 {
+  color: #2d2f3c;
+}
+
+.dyn-gallery .dyn-search.label {
+  font-size: 15px;
+  margin-top: 5px;
+}
+.dyn-gallery .dyn-search.label i {
+  cursor: pointer;
+}

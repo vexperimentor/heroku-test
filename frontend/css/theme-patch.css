@@ -1,0 +1,69 @@
+.btn i.fa {
+    padding-right: 0px;
+}
+
+/* Custom checkbox */
+/*
+
+input[type=checkbox] { display:none; } 
+input[type=checkbox]:before {
+  font-family: 'FontAwesome';
+  display: inline-block;
+}
+
+input[type=checkbox]:before { content: "\f096"; } 
+input[type=checkbox]:before { letter-spacing: 10px; } 
+input[type=checkbox]:checked:before { content: "\f046"; } 
+input[type=checkbox]:checked:before { letter-spacing: 5px; } 
+*/
+
+.dyn-stylized-inputs .dyn-var input[type='text'].form-control{
+	display: inline;
+	width: 200px;
+}
+.dyn-stylized-inputs .dyn-var button.btn-default,  .dyn-stylized-inputs .dyn-var button.btn-primary:hover, .dyn-stylized-inputs .dyn-var button.btn-primary:focus, .dyn-stylized-inputs .dyn-var button.btn-primary:active{
+	border-width: 1px;
+}
+.dyn-stylized-inputs .dyn-var button.action-okay {
+	margin-left: 5px;
+}
+.dyn-stylized-inputs .dyn-var button.action-cancel {
+	margin-left: 2px;
+}
+.dyn-stylized-inputs .dyn-var .input-group{
+	display: block;
+}
+.dyn-stylized-inputs .dyn-var .input-group:after{
+	content: '';
+	clear:both;
+}
+.dyn-stylized-inputs .dyn-var .input-group .form-control{
+	width: 200px;
+}
+.dyn-stylized-inputs .dyn-var .input-group .input-group-btn{
+	display: block;
+	width: auto;
+	float: left;
+}
+
+hr {
+	margin: 20px 0;
+}
+
+.modal-header .modal-title {
+	color: white;
+}
+
+header#page-title.narrow-gap {
+	margin-bottom: 15px;
+}
+
+#topNav {
+	height: 81px !important;
+}
+#header_shadow {
+	top: 112px !important;
+}
+#wrapper {
+	padding-top: 112px !important;
+}

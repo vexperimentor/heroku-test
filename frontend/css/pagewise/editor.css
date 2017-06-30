@@ -1,0 +1,283 @@
+#wrapper {
+	padding-bottom: 0px !important;
+}
+
+.dyn-content{
+	
+
+background: rgba(238,238,238,1);
+background: -moz-linear-gradient(top, rgba(238,238,238,1) 0%, rgba(170,170,170,1) 100%);
+background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(238,238,238,1)), color-stop(100%, rgba(170,170,170,1)));
+background: -webkit-linear-gradient(top, rgba(238,238,238,1) 0%, rgba(170,170,170,1) 100%);
+background: -o-linear-gradient(top, rgba(238,238,238,1) 0%, rgba(170,170,170,1) 100%);
+background: -ms-linear-gradient(top, rgba(238,238,238,1) 0%, rgba(170,170,170,1) 100%);
+background: linear-gradient(to bottom, rgba(238,238,238,1) 0%, rgba(170,170,170,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#aaaaaa', GradientType=0 );
+
+
+}
+#dyn-editor-top {
+	color: white;
+	padding: 15px;
+	background-color: #eee;
+	margin-bottom: 20px;
+	-webkit-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.12);
+	-moz-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.12);
+	box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.12);
+}
+#dyn-editor-top::after{
+	content: "";
+	display: block;
+	clear: both;
+}
+#dyn-editor-top > .heading {
+	float: left;
+}
+#dyn-editor-top > .heading .title{
+	font-size: 20px;
+	color: #666;
+}
+#dyn-editor-top > .heading .desc{
+	font-size: 17px;
+	color: #999;
+}
+#dyn-editor-top > ul.operations{
+	list-style: none;
+	float: right;
+}
+#dyn-editor-top > ul.operations::after{
+	content: "";
+	display: block;
+	clear: both;
+}
+#dyn-editor-top > ul.operations li{
+	margin-right: 5px;
+	float: left;
+}
+
+#dyn-editor-body::after {
+	content: "";
+	display: block;
+	clear: both;
+}
+
+#dyn-editor-body .side-panel{
+	box-sizing: border-box;
+	padding: 5px;
+	float : left;
+
+	background-color: #eee;
+	border: 1px solid #ccc;
+
+	-webkit-transition: all 0.4s;
+  transition: all 0.4s;
+}
+#dyn-editor-body .side-panel#dyn-variable-panel{
+	border-left: none;
+}
+#dyn-editor-body .side-panel#dyn-function-panel{
+	border-right: none;
+}
+#dyn-editor-body .side-panel .accordion{
+	max-height: 680px;
+}
+#dyn-editor-body .side-panel h2{
+	font-size: 15px;
+	text-align: center;
+	margin: 10px;
+}
+#dyn-editor-body .side-panel h2::after{
+	content: "";
+	display: block;
+	clear: both;
+}
+
+#dyn-editor-ta {
+	margin-bottom: 20px;
+	margin-left: 20px;
+	margin-right: 20px;
+	box-sizing: border-box;
+	
+	-webkit-transition: all 0.4s;
+  transition: all 0.4s;
+  
+	float:left;
+}
+#dyn-editor-ta.wside-panel-0{
+	width: calc(100% - 160px);
+}
+#dyn-editor-ta.wside-panel-1{
+	width: calc(100% - 400px);
+}
+#dyn-editor-ta.wside-panel-2{
+	width: calc(100% - 640px);
+}
+#dyn-editor-ta .ta-scroll-window{
+	min-height: 600px;
+}
+#dyn-editor-ta .ta-scroll-window > .ta-bind {
+	min-height: 600px;
+}
+#dyn-editor-ta .dyn-func.make-clickable,
+#dyn-editor-ta .dyn-output.make-clickable,
+#dyn-editor-ta .dyn-var.make-clickable
+{
+	cursor: pointer;
+	/*color: blue;*/
+}
+
+#dyn-new-variable-panel h2::after{
+	clear: both;
+    content: "";
+    display: block;
+}
+#dyn-new-variable-panel h2 button{
+	margin-left: 5px;
+	margin-top: 8px;
+}
+#dyn-new-variable-panel hr{
+	margin: 5px;
+}
+#dyn-new-variable-panel .rules-header::after {
+    clear: both;
+    content: "";
+    display: block;
+}
+
+#dyn-func-selector.invalid{
+	border-color: red;
+}
+
+#dyn-preview-panel {
+	margin-bottom: 20px;
+	margin-left: 20px;
+	margin-right: 20px;
+	box-sizing: border-box;
+	
+	-webkit-transition: all 0.4s;
+  transition: all 0.4s;
+  
+	float:left;
+
+	height : auto;
+	min-height: 600px;
+	padding: 6px 12px;
+	box-sizing: border-box;
+	border: 1px solid #ccc;
+	background-color: white;
+}
+
+#dyn-preview-panel.dyn-view {
+	margin-left: 0px;
+	margin-right: 0px;
+	float: none;
+}
+
+#dyn-preview-panel.wside-panel-0{
+	width: calc(100% - 160px);
+}
+#dyn-preview-panel.wside-panel-1{
+	width: calc(100% - 400px);
+}
+#dyn-preview-panel.wside-panel-2{
+	width: calc(100% - 640px);
+}
+
+.hidden {
+  display: none;
+  opacity: 0;
+}
+
+/* Var panel new style */
+#dyn-variable-panel .c-list {
+	padding: 10px 15px 10px 10px;
+	max-height: 500px;
+}
+#dyn-variable-panel .c-list .c-item {
+	padding: 5px 10px;
+
+	cursor: pointer;
+
+	font-size: 15px;
+	color: #666;
+	background-color: #F3F3F3;
+	border: 1px solid #ccc;
+	border-radius: 2px;
+	
+}
+#dyn-variable-panel .c-list .c-item .c-btn-remove{
+	display: none;
+}
+#dyn-variable-panel .c-list .c-item:hover {
+	background-color: #666;
+	color: #fff;
+}
+#dyn-variable-panel .c-list .c-item:hover .c-btn-remove{
+	display: block;
+}
+#dyn-variable-panel .c-list .c-item:hover .c-btn-remove:hover{
+	color: #F07057;
+}
+#dyn-variable-panel .c-list .c-item:not(:first-child){
+	margin-top: 5px;
+}
+#dyn-variable-panel .c-list .c-details{
+	padding: 5px 5px 5px 10px;
+	background-color: #fff;
+	color: #333;
+}
+#dyn-variable-panel .c-list .c-details .c-name{
+	font-size: 16px;
+}
+#dyn-variable-panel .c-list .c-details .c-type, #dyn-variable-panel .c-list .c-details .c-default, #dyn-variable-panel .c-list .c-details .c-rules{
+	font-size: 13px;
+}
+#dyn-variable-panel .c-list .c-details .c-desc{
+	margin-bottom: 5px;
+	font-size: 11px;
+	color: #666;
+}
+
+#dyn-editor-settings .c-settings-col.c-right{
+	padding: 0px 95px 10px 0px;
+}
+#dyn-editor-settings .c-settings-col.c-left{
+	padding: 0px 0px 10px 100px;
+}
+#dyn-editor-settings .c-settings-col.c-left .c-directional {
+	display: inline-block;
+	margin: 0px 10px;
+	font-size: 19px;
+}
+#dyn-editor-settings .c-settings-col .breadcrumb li:not(.active){
+	cursor: pointer;
+}
+#dyn-editor-settings .c-settings__locale{
+	width: 300px;
+	float: right;
+	margin-left: 10px;
+}
+
+.dyn-field-attr .editable-combo {
+    border: medium none;
+    box-shadow: none !important;
+    box-sizing: border-box;
+    height: calc(100% - 4px);
+    margin-left: 2px;
+    position: absolute;
+    top: 2px;
+    width: 80%;
+}
+
+#dyn-editor-settings .dyn-wrapper, #dyn-editor-publish .dyn-wrapper{
+	padding:0px 80px 20px;
+	box-sizing: border-box;
+}
+#dyn-editor-publish .panel-body {
+	min-height: 500px;
+	padding-top: 100px;
+	padding-left: 50px;
+}
+.alertRulesInvalid{
+	border-color: red;
+}
