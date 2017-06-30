@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <table datatable="ng" class="row-border hover" dt-options="dt.tbOptions" style="margin-left: 0; width: 100%">
+        <thead>
+          <tr>
+            <td>Assignee</td>
+            <td>View Submission</td>
+            <td>Opened</td>
+            <td>Submitted</td>
+            <td>Edit Submission</td>
+            <td>Edited</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="submission in arr_submissions">
+            <td>
+              {{submission._submitter.username}}              
+            </td>
+            <td>
+              <a href="" ng-click="viewSubmission(submission)">View</a>
+            </td>
+            <td>
+              {{submission.info.submitted_at | datePrintDefault}}
+            </td>
+            <td>
+              {{submission.info.submitted_at | datePrintDefault}}
+            </td>
+            <td>
+              <a href="" ng-click="editSubmission(submission)">Edit</a>
+            </td>
+            <td>
+              {{submission.info.submitted_at | datePrintDefault}}
+            </td>            
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+<!--   <div class="row">
+    <div class=""
+  </div> -->
+</div>

@@ -1,0 +1,41 @@
+<div id="dyn-page-contacts">
+			<!-- PAGE TITLE -->
+			<header id="page-title" class="dyn-nav">
+				<div class="container">
+					<h1>My Contacts</h1>
+
+					<ul class="breadcrumb">
+						<li><a href="index.html">Home</a></li>
+						<li class="active">Contacts</li>
+					</ul>
+				</div>
+			</header>
+
+			<section class="container dyn-contacts-content">
+				<span class="js_loader" ng-if="load_activity.loading"><i class="fa fa-asterisk fa-spin"></i>LOADING</span>
+
+				<h2>Meet the <strong>team</strong></h2>
+
+				<p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur pellentesque neque eget diam posuere porta. Quisque ut nulla at nunc vehicula lacinia. Proin adipiscing porta tellus, ut feugiat nibh adipiscing sit amet.</p>
+
+				<ul class="nav nav-pills isotope-filter isotope-filter" data-sort-id="isotope-list" data-option-key="filter">
+					<li data-option-value="*" class="active"><a href="#/contacts#">Show All</a></li>
+					<li data-option-value=".ceo"><a href="#/contacts#">CEO</a></li>
+					<li data-option-value=".marketing"><a href="#/contacts#">Marketing</a></li>
+					<li data-option-value=".design"><a href="#/contacts#">Design</a></li>
+					<li class="dyn-btn-container">
+						<button class="btn btn-lg btn-default pull-right" ng-click="onAssignDyno()">Assign</button>
+					</li>
+				</ul>
+
+				<div class="row" ng-include="'templates/main/contacts/list.html'"></div>
+				<!-- CALLOUT -->
+				<div class="bs-callout text-center nomargin-bottom">
+					<h3>Be part of <strong>Atropos Team</strong>. Send us your CV! <a href="contact-us.html" target="_blank" class="btn btn-primary btn-lg">Ok, let's do it!</a></h3>
+				</div>
+				<!-- /CALLOUT -->
+
+
+			</section>
+<div ng-init="initTopNav()"></div>
+</div>

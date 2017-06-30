@@ -1,0 +1,27 @@
+<div class="row">
+	<div class="col-xs-6 c-settings-col c-left">
+		<a class="c-directional" href="" ng-click="breadcrumb_activity.forwardStep(-1)"><i class="fa fa-angle-left"></i></a>
+		<ol class="breadcrumb">
+		  <li ng-repeat="step in breadcrumb_activity.arr_names track by $index" class="{{($index==breadcrumb_activity.current)?'active':''}}" ng-click="breadcrumb_activity.changeStep($index)">
+		  	{{step}}
+		  </li>		  
+		</ol>
+		<a class="c-directional" href="" ng-click="breadcrumb_activity.forwardStep(1)"><i class="fa fa-angle-right"></i></a>		
+	</div>
+	<div class="col-xs-6 c-settings-col c-right">
+    <div ng-show="breadcrumb_activity.current == 0 && !env.preview_mode">
+  		<div class="input-group c-settings__locale">
+    			<span class="input-group-addon" id="locale-addon">Date/Time Locale</span>
+    			<select class="form-control" aria-describedby="locale-addon" ng-model="obj_dyno.body.info.locale_date" ng-if="obj_dyno.body.info">
+    				<option ng-repeat = "(code, info) in dict_locales_date" value="{{code}}" ng-selected="code==obj_dyno.body.info.locale_date" ng-if="code!='_default'">{{info.name}}</option>
+  			</select>
+  		</div>
+  		<div class="input-group c-settings__locale">
+    			<span class="input-group-addon" id="locale-addon1">Numeric Locale</span>
+    			<select class="form-control" aria-describedby="locale-addon1" ng-model="obj_dyno.body.info.locale" ng-if="obj_dyno.body.info">
+    				<option ng-repeat = "(code, info) in dict_locales" value="{{code}}" ng-selected="code==obj_dyno.body.info.locale" ng-if="code!='_default'">{{info.name}}</option>
+  			</select>
+  		</div>
+    </div>
+	</div>
+</div>

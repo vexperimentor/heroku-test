@@ -1,0 +1,13 @@
+<div class="container w-dyno">
+  <div class="dyn-info-container">
+    <div id="dyn-dyno-name" contenteditable="true">{{obj_dyno.body.info.name}}</div>
+    <div id="dyn-dyno-desc" contenteditable="true">{{obj_dyno.body.info.description}}</div>
+  </div>
+  <div class="dyn-btn-container">
+    <select class="form-control" ng-model="view.mode">
+      <option value="assignee">View by Assignees</option>
+      <option value="variable">View by Variables</option>
+    </select>
+  </div>
+<!--  <div ng-init="setupMediumEditor()"></div> -->
+</div>

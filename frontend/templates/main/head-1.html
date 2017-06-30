@@ -1,0 +1,24 @@
+<div class="container">
+
+	<!-- PROFILE -->
+	<div class="btn-group pull-right" ng-init="getUserObj()">
+		<button class="dropdown-toggle language" type="button" data-toggle="dropdown">
+			<i class="fa fa-user"></i> {{env_variables.obj_user.username}} <span class="caret"></span>
+		</button>
+
+		<ul class="dropdown-menu">
+			<li>
+				<a href="" ng-click="showProfile()">
+					Profile
+				</a>
+			</li>
+			<li>
+				<a href="" ng-click="onLogout()">
+					Logout
+				</a>
+			</li>
+		</ul>
+	</div>
+	<!-- /PROFILE -->
+	
+</div>

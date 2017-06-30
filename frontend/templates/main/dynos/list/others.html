@@ -1,0 +1,44 @@
+<span class="js_loader" ng-if="bigLoader.loading"><i class="fa fa-asterisk fa-spin"></i>LOADING</span>
+
+<div ng-repeat = "dyno in arr_dynos | orderBy: sortDynoOnDate:true track by $index" class="item" ng-if="!bigLoader.loading" ng-show="($index < page_activity.current * global_page_activity.size) && ($index >= (page_activity.current-1) * global_page_activity.size)">
+  <!-- dyno title -->
+  <div class="item-title">
+    <h2>
+      <a class="{{dyno.selected?'dyn-selected':''}} title" href="" ng-click="dyno.selected = !dyno.selected"><i class="fa fa-{{dyno.published?'check':'pencil'}}-square-o"></i> &nbsp;{{dyno.name}}</a>
+      <div class="dyn-actions">
+        <div class="btn-group" uib-dropdown>
+            <button type="button" class="btn btn-default" ng-click="onDynoAction(0, dyno)">{{dyno.access.require_submission?'View & Respond':'View'}}</button>
+            <button type="button" class="btn btn-default dropdown-toggle" uib-dropdown-toggle>
+              <span class="caret"></span>
+            </button>
+            <!-- <ul class="dropdown-menu" role="menu" uib-dropdown-menu>
+              <li ng-if="!dyno.published"><a href="" ng-click="onDynoAction(1, dyno)">View</a></li>
+              <li><a href="" ng-click="onDynoAction(2, dyno)">Replicate</a></li>
+            </ul> -->
+          </div>
+      </span>
+    </h2>
+    <!-- <a href="blog.html" class="label label-default light"><i class="fa fa-dot-circle-o"></i> Business</a> 
+    <a href="blog-single-sidebar-left.html#comments" class="scrollTo label label-default light"><i class="fa fa-comment-o"></i> 3 Comments</a> -->
+    <span ng-repeat = "tag in dyno.tags" class="label label-default light tag-label">{{tag}}</span> 
+  </div>
+
+  <!-- dyno description -->
+  <p>
+    Shared {{dyno.access.public?'Publicly':'Privately'}} by {{dyno.creator}} on {{dyno.modified_at | datePrintDefault }}
+  </p>
+</div>
+<div paging
+  page="page_activity.current" 
+  page-size="global_page_activity.size" 
+  total="page_activity.total"
+  show-prev-next="true"
+  show-first-last="true"
+  text-next-class="glyphicon glyphicon-chevron-right"
+  text-prev-class="glyphicon glyphicon-chevron-left"
+  text-first-class="glyphicon glyphicon-backward"
+  text-last-class="glyphicon glyphicon-forward"
+  paging-action="page_activity.pageChanged('', page)"
+  class="text-center"
+>
+</div>

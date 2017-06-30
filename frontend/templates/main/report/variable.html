@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12" >
+      <table datatable="ng" class="row-border hover" dt-options="dt.tbOptions" style="margin-left: 0; width: 100%">
+        <thead>
+          <tr>
+            <td>Assignee</td>
+            <td ng-repeat="var in arr_vars | orderBy:_id">
+              {{var.info.name}}
+            </td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="submission in arr_submissions">
+            <td>
+              {{submission._submitter.username}}
+            </td>
+            <td ng-repeat="var in submission.info.answers | orderBy:_id">
+              {{var.value}}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

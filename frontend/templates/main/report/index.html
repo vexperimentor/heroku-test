@@ -1,0 +1,9 @@
+<div class="dyn-overlay" ng-show="bigLoader.loading">
+  <img src="img/loader.gif" class="img-absolute-center vert-middle">
+</div>
+<div class="dyn-content" ng-if="!bigLoader.loading">
+  <header id="page-title" class="narrow-gap" ng-include="'templates/main/report/topbar.html'"></header>
+  <div id="dyn-report-assignees" class="dyn-report-table-view" ng-if="view.mode == 'assignee'" ng-include="'templates/main/report/assignee.html'"></div>
+  <div id="dyn-report-variables" class="dyn-report-table-view" ng-if="view.mode == 'variable'" ng-include="'templates/main/report/variable.html'"></div>
+</div>
+<div ng-init="initTopNav()"></div>

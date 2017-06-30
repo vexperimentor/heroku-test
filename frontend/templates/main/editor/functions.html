@@ -1,0 +1,10 @@
+<h2>{{panel_activity.function_visible?'Functions ':''}}F(X) 
+<button class="float-left btn btn-xs" ng-click="onToggleFunctionPanel()"><i class="fa fa-angle-double-{{panel_activity.function_visible?'right':'left'}}"></i></button>
+</h2>
+<div class="accordion" ng-show="panel_activity.function_visible">
+  <h3 ng-repeat-start="func in obj_funcs.items track by func._id">{{func.info.name}}</h3>
+  <div ng-repeat-end>
+    <i>{{func.info.description}}</i>
+    <div ng-if="$last" ng-init="setupFuncAccordion()"></div>
+  </div>
+</div>

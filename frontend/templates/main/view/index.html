@@ -1,0 +1,11 @@
+<div class="dyn-overlay" ng-show="bigLoader.loading">
+  <img src="img/loader.gif" class="img-absolute-center vert-middle">
+</div>
+<div class="dyn-content" ng-hide="bigLoader.loading">
+  <div ng-if = '!embeddedDyno'>
+    <header height-watcher id="page-title" class="narrow-ga fixed" ng-include="'templates/main/view/topbar.html'"></header>
+  </div>
+  <!-- <div id="dyn-editor-settings" ng-include="'templates/main/view/settings.html'"></div> -->
+  <div id="dyn-editor-body" class="padding-side-ways view-mode" ng-include="'templates/main/view/body.html'"></div>
+</div>
+<div ng-init="initTopNav()"></div>

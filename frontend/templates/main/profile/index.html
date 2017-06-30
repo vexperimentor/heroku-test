@@ -1,0 +1,84 @@
+<div ng-cloak ng-init="initTopNav()">
+    <!-- PAGE TITLE -->
+    <header id="page-title">
+        <div class="container">
+            <div class="dyn-info-container">
+                <h1>Profile</h1>
+            </div>
+        </div>        
+    </header>
+    <section class="container">
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">    
+            <gravatar-image class="col-md-4" data-gravatar-email="email" data-gravatar-size="150" data-gravatar-rating="pg" 
+            data-gravatar-default="identicon" data-gravatar-secure="true" data-gravatar-css-class="btn btn-large"></gravatar-image>
+
+                <form role="form" name="profileForm" ng-submit="onSubmit(profileForm.$valid)" class="white-row" novalidate>
+                    <div class="ss-error" ng-show="validation_activity.invalid">
+                        <div class="alert alert-danger" role="alert">
+                            {{validation_activity.msg}}
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group">
+                            <div class="col-md-8">
+                                <label for="form-lastName">Last name</label>
+                                <input type="text" name="lastName" ng-model="info_obj.lastName" placeholder="Last name..." class="form-email form-control" required>
+                                <div class="help-block" ng-messages="profileForm.lastName.$error" ng-if="profileForm.lastName.$touched || validation_activity.invalid">
+                                    <p ng-message="required">Last Name is required.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-8">
+                                <label for="form-lastName">First name</label>
+                                <input type="text" name="firstName" ng-model="info_obj.firstName" placeholder="First name..." class="form-email form-control" required>
+                                <div class="help-block" ng-messages="profileForm.firstName.$error" ng-if="profileForm.firstName.$touched || validation_activity.invalid">
+                                    <p ng-message="required">First Name is required.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <label for="form-aboutMe">About me</label>
+                                <textarea name="aboutMe" ng-model="info_obj.aboutMe" rows="3" cols="80" class="form-control" id="aboutMe" placeholder="Write something about yourself" ng-model="aboutMe" required ng-minlength="10"></textarea>
+                                <div class="help-block" ng-messages="profileForm.aboutMe.$error" ng-if="profileForm.aboutMe.$touched || validation_activity.invalid">
+                                    <p ng-message="minlength">Too short.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="row">
+                        <div class="form-group">
+                            <div class="col-md-6">
+                                <label for="form-password">New password</label>
+                                <input type="password" name="password" ng-model="info_obj.password" placeholder="Password..." class="form-email form-control" ng-minlength="6"> 
+                            </div>
+                            <div class="col-md-6">
+                                <label for="form-password-confirm">Re-enter Password</label>
+                                <input type="password" name="form-password-confirm" ng-model="info_obj.password_confirm" placeholder="Confirm Password..." class="form-email form-control">
+                                <div class="help-block" ng-messages="profileForm.password.$error" ng-if="profileForm.password.$touched || validation_activity.invalid">
+                                    <p ng-message="minlength">Password is too short.</p>
+                                    <!-- <p ng-message="required">Password is required.</p> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-10">
+                            <input type="submit" class="btn btn-primary btn-md pull-right push-bottom {{submission_activity.submitting?'disabled':''}}" value="{{submission_activity.submitting?'SAVING...':'Save'}}">
+                        </div>
+                        <div class="col-md-2">
+                            <input type="button" ng-click="handleCancel()" class="btn btn-primary btn-md pull-right push-bottom" value="Cancel">
+                        </div>
+                    </div>                 
+                </form>
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+    </section>
+    <div ng-include="'templates/main/profile/successModal.tpl'"></div>
+</div>

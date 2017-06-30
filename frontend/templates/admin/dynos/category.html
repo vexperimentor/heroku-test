@@ -1,0 +1,54 @@
+<div id="dyn-overlay" ng-show="bigLoader.loading">
+	<img src="img/loader.gif" class="img-absolute-center vert-middle">
+</div>
+
+<div class="content table-responsive table-full-width">
+	<table class="table table-hover table-striped">
+		<thead>
+			<th width="40%">Name</th>
+			<th width="40%">Parent</th>
+			<th width="30%">Actions</th>
+		</thead>
+		<tbody ng-if="!bigLoader.loading">
+			<tr ng-repeat-start = "category in tree_category.parents track by $index">
+				<td>
+					<span class='xedit-wrapper'>
+						<a href="#" e-required editable-text="category.name" onbeforesave="onUpdateName(category, $data)">{{category.name}}</a>
+					</span>
+				</td>
+				<td>
+					-
+				</td>
+				<td>
+					<button ng-click="onRemove(category._id)"><i class="fa fa-remove"></i></button>
+				</td>
+			</tr>
+			<tr ng-repeat = "sub_category in tree_category.children[category._id] track by $index">
+				<td>
+					<span class='xedit-wrapper'>
+						>> <a href="#" e-required editable-text="sub_category.name" onbeforesave="onUpdate(sub_category, 'name', $data)">{{sub_category.name}}</a>
+					</span>
+				</td>
+				<td>
+					<span class='xedit-wrapper'>
+						<a href="#" editable-select="sub_category.parent_id" e-ng-options="parent._id as parent.name for parent in tree_category.parents" onbeforesave="onUpdate(sub_category, 'parent_id', $data)">switch parent</a>
+					</span>
+				</td>
+				<td>
+					<button ng-click="onRemove(sub_category._id)"><i class="fa fa-remove"></i></button>
+				</td>
+			</tr>
+			<tr ng-repeat-end></tr>
+			<tr ng-if = "tree_category.parents.length == 0">
+				<td colspan="3" align="center">
+					NO CATEGORIES DEFINED.
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<hr />
+<div>
+	<button class="btn btn-info btn-fill pull-right" type="button" ng-click="onCreateCategory()">Add New</button>
+	<div class="clearfix"></div>
+</div>

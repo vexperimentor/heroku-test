@@ -1,0 +1,18 @@
+<div class="row">
+  <div class="col-xs-12 c-settings-col c-right">
+    <div>
+      <div class="input-group c-settings__locale">
+          <span class="input-group-addon" id="locale-addon">Date/Time Locale</span>
+          <select class="form-control" aria-describedby="locale-addon" ng-model="obj_dyno.body.info.locale_date" ng-if="obj_dyno.body.info">
+            <option ng-repeat = "(code, info) in dict_locales_date" value="{{code}}" ng-selected="code==obj_dyno.body.info.locale_date" ng-if="code!='_default'">{{info.name}}</option>
+        </select>
+      </div>
+      <div class="input-group c-settings__locale">
+          <span class="input-group-addon" id="locale-addon1">Numeric Locale</span>
+          <select class="form-control" aria-describedby="locale-addon1" ng-model="obj_dyno.body.info.locale" ng-if="obj_dyno.body.info">
+            <option ng-repeat = "(code, info) in dict_locales" value="{{code}}" ng-selected="code==obj_dyno.body.info.locale" ng-if="code!='_default'">{{info.name}}</option>
+        </select>
+      </div>
+    </div>
+  </div>
+</div>

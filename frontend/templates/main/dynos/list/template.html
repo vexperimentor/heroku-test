@@ -1,0 +1,42 @@
+<span class="js_loader" ng-if="bigLoader.loading"><i class="fa fa-asterisk fa-spin"></i>LOADING</span>
+<div class="ss-error" ng-show="alert.visible" ng-click="alert.hide()" style="cursor: pointer">
+    <div class="alert alert-success" role="alert">
+        {{alert.msg}}
+    </div>
+</div>
+<div ng-repeat = "dyno in arr_dynos | orderBy: sortDynoOnDate:true track by $index" class="item" ng-if="!bigLoader.loading" ng-show="($index < page_activity.current * global_page_activity.size) && ($index >= (page_activity.current-1) * global_page_activity.size)">
+  <!-- dyno title -->
+  <div class="item-title">
+    <h2>
+      <a class="{{dyno.selected?'dyn-selected':''}} title" href="" ng-click="dyno.selected = !dyno.selected"><i class="fa fa-{{dyno.published?'check':'pencil'}}-square-o"></i> &nbsp;{{dyno.name}}</a>
+      <div class="dyn-actions">
+        <div class="btn-group" uib-dropdown>
+            <button type="button" class="btn btn-default" ng-click="onDynoAction(0, dyno)">Create a Dyno</button>
+            <button type="button" class="btn btn-default dropdown-toggle" uib-dropdown-toggle>
+              <span class="caret"></span>
+            </button>
+          </div>
+      </span>
+    </h2>
+    <span ng-repeat = "tag in dyno.tags" class="label label-default light tag-label">{{tag}}</span> 
+  </div>
+
+  <!-- dyno description -->
+  <p>
+    Last edited on {{dyno.modified_at | datePrintDefault }} by {{dyno.creator}}
+  </p>
+</div>
+<div paging
+  page="page_activity.current" 
+  page-size="global_page_activity.size" 
+  total="page_activity.total"
+  show-prev-next="true"
+  show-first-last="true"
+  text-next-class="glyphicon glyphicon-chevron-right"
+  text-prev-class="glyphicon glyphicon-chevron-left"
+  text-first-class="glyphicon glyphicon-backward"
+  text-last-class="glyphicon glyphicon-forward"
+  paging-action="page_activity.pageChanged('', page)"
+  class="text-center"
+>
+</div>

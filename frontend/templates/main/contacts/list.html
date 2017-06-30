@@ -1,0 +1,27 @@
+<ul class="sort-destination isotope" data-sort-id="isotope-list">
+	<li ng-repeat = "contact in arr_contacts track by contact._id" class="isotope-item col-md-3 item-contact {{contact.role}}">
+		<div class="item-box fixed-box">
+			<figure>
+				<img class="img-responsive" src="img/avatars/reader.png" width="263" height="263" alt="">
+			</figure>
+			<div class="item-box-desc">
+				<div class="c-top-bar">
+					<div class="pull-left">
+						<h4>{{contact.username}}</h4>
+						<small class="styleColor">{{contact.role}}</small>
+					</div>
+					<div class="pull-right">
+						<input type="checkbox" class="form-control" ng-model="contact_activity.arr_checked[contact._id]">
+					</div>
+				</div>
+				<p>Normal Dynos Reader.</p>
+				<div class="text-center">
+					<a href="#" class="social fa fa-facebook"></a>
+					<a href="#" class="social fa fa-twitter"></a>
+					<a href="#" class="social fa fa-google-plus"></a>
+				</div>
+			</div>
+		</div>
+		<div ng-if="$last" ng-init="showMasonryList()"></div>
+	</li>
+</ul>

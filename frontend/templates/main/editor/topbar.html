@@ -1,0 +1,12 @@
+<div class="container w-dyno">
+	<div class="dyn-info-container">
+		<div id="dyn-dyno-name" contenteditable="false">{{obj_dyno.body.info.name}}</div>
+		<!-- <div id="dyn-dyno-desc" contenteditable="true">{{obj_dyno.body.info.description}}</div> -->
+	</div>
+	<div class="dyn-btn-container">
+    <button class="btn btn-lg btn-default pull-right margin-left--5" ng-click="togglePreviewMode()">{{env.preview_mode?'Edit':'Preview'}}</button>
+    <button class="btn btn-lg btn-default pull-right margin-left--5" ng-disabled="load_activity.loading" ng-click="onSaveDynoExit()">{{load_activity.loading?'Saving...':'Save & Exit to My Dynos'}}</button>
+		<button class="btn btn-lg btn-primary pull-right" ng-disabled="load_activity.loading" ng-click="onSaveDyno()">{{load_activity.loading?'Saving...':'Save'}}</button>    
+	</div>
+<!--	<div ng-init="setupMediumEditor()"></div> -->
+</div>

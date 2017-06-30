@@ -1,0 +1,8 @@
+<div id="dyn-variable-panel" class="side-panel" style="width: {{panel_activity.variable_visible?'300':'60'}}px" ng-include="'templates/main/editor/variables.html'" ng-show="!panel_mode.variable_create"></div>
+<!-- <div id="dyn-new-variable-panel" class="side-panel" ng-include="'templates/main/editor/create/variable.html'" ng-show="panel_mode.variable_create" style="width: 300px"></div> -->
+<div text-angular="text-angular" id="dyn-editor-ta" class="wside-panel-{{panel_activity.variable_visible+panel_activity.function_visible}}" ng-model="raw_content" map-vars="{{editor_support.var_maps}}" map-functions="{{editor_support.function_maps}}" map-keywords="{{editor_support.keyword_maps}}" ng-if="!bigLoader.loading && editor_support.var_maps && editor_support.function_maps && editor_support.dict_sdfs && editor_support.keyword_maps" dict-functions="{{editor_support.dict_sdfs}}"></div> <!-- unsetPreviewMode -->
+<div id="dyn-preview-panel" class="dyn-stylized-inputs wside-panel-{{panel_activity.variable_visible+panel_activity.function_visible}}" style="display: none">
+	<compiler-html id="dyn-html-stylized" model="objHtmls.stylized"></compiler-html>
+</div>
+<!-- <div id="dyn-function-panel" class="side-panel" style="width: {{panel_activity.function_visible?'300':'60'}}px" ng-include="'templates/main/editor/functions.html'"></div> -->
+

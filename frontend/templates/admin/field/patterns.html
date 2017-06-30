@@ -1,0 +1,43 @@
+<div id="dyn-overlay" ng-show="bigLoader.loading">
+	<img src="img/loader.gif" class="img-absolute-center vert-middle">
+</div>
+<div class="content table-responsive table-full-width">
+	<table class="table table-hover table-striped">
+		<thead>
+			<th width="20%">Name</th>
+			<th width="20%">Pattern</th>
+			<th width="40%">Applied Fields</th>
+			<th width="20%">Actions</th>
+		</thead>
+		<tbody>
+			<tr ng-repeat = "pattern in arr_patterns">
+				<td>
+					<span class='xedit-wrapper'>
+						<a href="#" e-required editable-text="pattern.name" onbeforesave="onUpdate(pattern, 'name', $data)">{{pattern.name}}</a>
+					</span>
+				</td>
+				<td>
+					<span class='xedit-wrapper'>
+						<a href="#" e-required editable-text="pattern.pattern" onbeforesave="onUpdate(pattern, 'pattern', $data)">{{pattern.pattern}}</a>
+					</span>
+				</td>
+				<td>
+					<span class='xedit-wrapper'>
+						<a href="#" editable-checklist="pattern.fields" e-ng-options="field as field for field in arr_fields" onbeforesave="onUpdate(pattern, 'fields', $data)">
+					    	{{ pattern.fields | joinedArray }}
+						</a>
+					</span>
+				</td>
+				<td>
+					<input type="text" id="test-me-{{pattern._id}}" placeholder="Test Now">
+					<button ng-click="onRemove(pattern._id)"><i class="fa fa-remove"></i></button>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<hr />
+<div>
+	<button class="btn btn-info btn-fill pull-right" type="button" ng-click="onCreatePattern()">Add New</button>
+	<div class="clearfix"></div>
+</div>

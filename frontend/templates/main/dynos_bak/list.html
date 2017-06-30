@@ -1,0 +1,28 @@
+<li class="masonry-item" ng-repeat = "dyno in arr_dynos | filter: {info: {is_draft: false}} track by dyno._id">
+	<div class="item">
+
+		<!-- article title -->
+		<div class="item-title">
+			<h2><a href="#/dynos/edit/{{dyno._id}}">{{dyno.info.name}}</a></h2>
+			<a href="blog.html" class="label label-default light"><i class="fa fa-dot-circle-o"></i> Business</a> 
+			<a href="blog-single-sidebar-left.html#comments" class="scrollTo label label-default light"><i class="fa fa-comment-o"></i> 3 Comments</a>
+			<span class="label label-default light">June 29, 2014</span> 
+		</div>
+
+		<!-- image -->
+		<figure>
+			<img src="assets/images/demo/blog.jpg" class="img-responsive" alt="img" />
+		</figure>
+
+		<!-- blog short preview -->
+		<p>
+			{{dyno.info.description}}
+		</p>
+
+		<!-- read more button -->
+		<a href="blog-single-sidebar-left.html" class="btn btn-xs"><i class="fa fa-sign-out"></i> READ MORE</a>
+		<div ng-if="$last" ng-init="showMasonryList()"></div>
+	</div>
+
+</li>
+<div class="clearfix"></div>

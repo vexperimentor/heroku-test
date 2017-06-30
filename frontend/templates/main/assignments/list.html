@@ -1,0 +1,28 @@
+<li class="masonry-item" ng-repeat = "assignment in arr_assignments track by assignment._id">
+	<div class="item">
+
+		<!-- article title -->
+		<div class="item-title">
+			<h2><a href="#/assignments/{{assignment._id}}">{{assignment.info.name}}</a></h2>
+			<a href="blog.html" class="label label-default light"><i class="fa fa-dot-circle-o"></i> Business</a> 
+			<a href="blog-single-sidebar-left.html#comments" class="scrollTo label label-default light"><i class="fa fa-comment-o"></i> 3 Comments</a>
+			<span class="label label-default light">By {{assignment.owner_username}}</span> 
+		</div>
+
+		<!-- image -->
+		<figure>
+			<img src="assets/images/demo/blog.jpg" class="img-responsive" alt="img" />
+		</figure>
+
+		<!-- blog short preview -->
+		<p>
+			{{assignment.info.description}}
+		</p>
+
+		<!-- read more button -->
+		<a href="blog-single-sidebar-left.html" class="btn btn-xs"><i class="fa fa-sign-out"></i> READ MORE</a>
+		<div ng-if="$last" ng-init="showMasonryList()"></div>
+	</div>
+
+</li>
+<div class="clearfix"></div>

@@ -1,0 +1,90 @@
+<div id="register" ng-cloak ng-init="initTopNav()">
+    <!-- PAGE TITLE -->
+    <header id="page-title">
+        <div class="container">
+            <div class="dyn-info-container">
+                <h1>Sign up</h1>
+
+                <ul class="breadcrumb">
+                    <li><a href="index.html">Home</a></li>
+                    <li class="active">Sign up</li>
+                </ul>
+            </div>
+        </div>        
+    </header>
+    <section class="container">
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+                <h2>Create <strong>Account</strong></h2>
+
+                <form role="form" name="registerForm" ng-submit="onSubmit(registerForm.$valid)" class="white-row" novalidate>
+                    <div class="ss-error" ng-show="validation_activity.invalid">
+                        <div class="alert alert-danger" role="alert">
+                            {{validation_activity.msg}}
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <label for="form-username">Username</label>
+                                <input type="text" name="username" ng-model="info_obj.username" placeholder="Username..." class="form-first-name form-control" required ng-minlength="3" ng-maxlength="12">
+                                <div class="help-block" ng-messages="registerForm.username.$error" ng-if="registerForm.username.$touched || validation_activity.invalid">
+                                    <p ng-message="minlength">Username is too short.</p>
+                                    <p ng-message="maxlength">Username is too long.</p>
+                                    <p ng-message="required">Username is required.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <label for="form-email">Email</label>
+                                <input type="email" name="email" ng-model="info_obj.email" placeholder="Email..." class="form-email form-control" required>
+                                <div class="help-block" ng-messages="registerForm.email.$error" ng-if="registerForm.email.$touched || validation_activity.invalid">
+                                    <p ng-message="email">Please enter valid email.</p>
+                                    <p ng-message="required">Email is required.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="row">
+                        <div class="form-group">
+                            <div class="col-md-6">
+                                <label for="form-password">Password</label>
+                                <input type="password" name="password" ng-model="info_obj.password" placeholder="Password..." class="form-email form-control" required ng-minlength="6"> 
+                            </div>
+                            <div class="col-md-6">
+                                <label for="form-password-confirm">Re-enter Password</label>
+                                <input type="password" name="form-password-confirm" ng-model="info_obj.password_confirm" placeholder="Confirm Password..." class="form-email form-control">
+                                <div class="help-block" ng-messages="registerForm.password.$error" ng-if="registerForm.password.$touched || validation_activity.invalid">
+                                    <p ng-message="minlength">Password is too short.</p>
+                                    <p ng-message="required">Password is required.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <input type="submit" class="btn btn-primary pull-right push-bottom {{submission_activity.submitting?'disabled':''}}" value="{{submission_activity.submitting?'SIGNING UP...':'SIGN UP'}}">
+                        </div>
+                    </div>                  
+                </form>
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+        <div class="row margin-top--block">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+                <div class="dyn-term-condition text-center white-row">
+                    By registering you confirm that you agree with our<br>
+                    <a href="support/terms.html" target="_blank">Terms & Conditions</a> and <a href="support/privacy.html" target="_blank">Privacy Policy</a>
+                </div>
+            </div>
+            <div class="col-md-2"></div>
+        </div>  
+    </section>
+</div>

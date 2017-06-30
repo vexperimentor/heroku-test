@@ -1,0 +1,104 @@
+<div id="dyn-page-assign">
+	<header id="page-title"> <!-- style="background-image:url('assets/images/demo/parallax_bg.jpg')" -->
+		<!--
+			Enable only if bright background image used
+			<span class="overlay"></span>
+		-->
+
+		<div class="container">
+			<h1>Assign Dynos</h1>
+
+			<ul class="breadcrumb">
+				<li><a href="#/">Home</a></li>
+				<li><a href="#/contacts">Contacts</a></li>
+				<li class="active">Assign</li>
+			</ul>
+		</div>
+	</header>
+
+	<section id="contact" class="container">
+
+		<span class="js_loader" ng-if="load_activity.loading"><i class="fa fa-asterisk fa-spin"></i>LOADING</span>
+		<div class="row" ng-if="!load_activity.loading">
+
+			<!-- FORM -->
+			<div class="col-md-8">
+
+				<h2>Fill in the Assignment Details</h2>
+
+				<!-- 
+					if you want to use your own contact script, remove .hide class
+				-->
+
+				<!-- SENT OK -->
+				<div id="_sent_ok_" class="alert alert-success fade in fsize16 hide">
+					<button type="button" class="close" aria-hidden="true" ng-click="onHideAlert()">&times;</button>
+					<strong>Thank You!</strong> Your assignment was successfully sent!
+				</div>
+				<!-- /SENT OK -->
+
+				<form role="form" name="submitForm" class="white-row" ng-submit="onSubmit(submitForm.$valid)" novalidate>
+					<div class="row">
+						<div class="form-group">
+							<div class="col-md-12">
+								<label>Subject *</label>
+								<input type="text" value="" ng-model="assign_activity.info.subject" class="form-control" name="subject" required ng-minlength="3" ng-maxlength="20">
+								<div class="help-block" ng-messages="submitForm.subject.$error" ng-if="submitForm.subject.$touched || assign_activity.invalid">
+					                <p ng-message="minlength">Subject is too short.</p>
+					                <p ng-message="maxlength">Subject is too long.</p>
+					                <p ng-message="required">Subject is required.</p>
+					            </div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="form-group">
+							<div class="col-md-12">
+								<label>Assignees</label>
+								<div>{{str_readers}}</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="form-group">
+							<div class="col-md-12">
+								<label>Description</label>
+								<textarea rows="10" class="form-control" name="description" ng-model="assign_activity.info.description"></textarea>
+							</div>
+						</div>
+					</div>
+
+					<br />
+
+					<div class="row">
+						<div class="col-md-12">
+							<input type="submit" value="{{assign_activity.submitting?'Submitting...':'Submit'}}" class="btn btn-primary btn-lg {{assign_activity.submitting?'disabled':''}}">
+						</div>
+					</div>
+				</form>
+			
+			</div>
+			<!-- /FORM -->
+
+
+			<!-- INFO -->
+			<div class="col-md-4">
+
+				<h2>Select A Dyno</h2>
+
+				<div class="white-row">
+					<div class="c-dyno-item {{(dyno._id == assign_activity.selected_dyno_id)?'active':''}}" ng-repeat = "dyno in arr_dynos | filter: {info: {is_draft: false}} track by dyno._id" ng-click="onSelectDyno(dyno._id)">
+						<span class="c-name">{{dyno.info.name}}<br><small>{{dyno.info.description}}</small></span>						
+						<span class="select-mark"><i class="fa fa-check"></i></span>
+					</div>
+				</div>
+
+
+			</div>
+			<!-- /INFO -->
+
+		</div>
+
+	</section>
+<div ng-init="initTopNav()"></div>
+</div>

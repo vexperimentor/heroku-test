@@ -1,0 +1,70 @@
+
+<div ng-cloak ng-init="initTopNav()">
+    <header id="page-title">
+        <div class="container">
+            <div class="dyn-info-container">
+                <h1>Sign in</h1>
+
+                <ul class="breadcrumb">
+                    <li><a href="index.html">Home</a></li>
+                    <li class="active">Sign in</li>
+                </ul>
+            </div>
+        </div>        
+    </header>
+    <section class="container">
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+                <h2>Sign in to <strong>DYNOS</strong></h2>
+
+                <form role="form" name="loginForm" ng-submit="onLogin(loginForm.$valid)" class="white-row" novalidate>
+                    <div class="ss-error" ng-show="validation_activity.invalid">
+                        <div class="alert alert-danger" role="alert">
+                            {{validation_activity.msg}}
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <label for="form-username">Username</label>
+                                <input type="text" name="username" placeholder="Username..." class="form-username form-control"  ng-model="info_obj.username" id="form-username" required>
+                                <div class="help-block" ng-messages="loginForm.username.$error" ng-if="loginForm.username.$touched || validation_activity.invalid">
+                                    <p ng-message="required">Username is required.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <label for="form-password">Password</label>
+                                <input type="password" name="password" placeholder="Password..." class="form-password form-control" ng-model="info_obj.password" id="form-password"  required>
+                                <div class="help-block" ng-messages="loginForm.password.$error" ng-if="loginForm.password.$touched || validation_activity.invalid">
+                                    <p ng-message="required">Password is required.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <input type="submit" class="btn btn-primary pull-right push-bottom {{submission_activity.submitting?'disabled':''}}" value="{{submission_activity.submitting?'SIGNING IN...':'SIGN IN'}}">
+                        </div>
+                    </div>                  
+                </form>
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+                <div class="dyn-term-condition text-right white-row">
+                    <a class="float-left" href="support/forgot.html">Forgot password</a>Don't have an account? &nbsp;&nbsp;<a class="link" href="register.html">Sign up</a>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+    </section>
+</div>    

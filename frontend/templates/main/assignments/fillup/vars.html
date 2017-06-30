@@ -1,0 +1,11 @@
+<div class="c-title">Variables</div>
+<div class="c-content">
+	<ang-accordion id="var-accordion" icon-position="left" close-icon-class="fa fa-caret-right" open-icon-class="fa fa-caret-down" one-at-a-time="true">
+		<collapsible-item initially-open="$first" id="var-accordion-{{variable.name}}" item-title="{{variable.name}}" ng-repeat="(key, variable) in objValues.main">
+			{{variable.description}}
+			<div class="c-value">
+				<var-value-input model="variable" popover-html="variable.popoverContent" popover-toggle="variable.popoverToggle"></var-value-input>
+			</div>
+		</collapsible-item>
+	</ang-accordion>
+</div>

@@ -1,0 +1,71 @@
+<div class="dyn-wrapper">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">Share & Publish</h3>
+    </div>
+    <div class="panel-body">
+      <div class="dyn-overlay" ng-show="bigLoader.loading">
+        <img src="img/loader.gif" class="img-absolute-center vert-middle">
+      </div>
+
+    <!-- Access Control -->
+      <div ng-if="!bigLoader.loading">
+        <div class="row form-group">
+          <div class="col-xs-12">
+            <label>
+              <input type="radio" ng-model="access.level" value="0"> None <font class="text-weight--light">( Dyno creator only will be able to access )</font>
+            </label><br/> 
+            <label>
+              <input type="radio" ng-model="access.level" value="1"> Private <font class="text-weight--light">( Access is limited to the ones specified below )</font>
+            </label><br/> 
+            <label>
+              <input type="radio" ng-model="access.level" value="2"> Public <font class="text-weight--light">( Anyone who has the access to the link can access )</font>
+            </label><br/>    
+          </div>
+        </div>
+
+        <div class="row form-group" ng-if="access.level > 0">
+          <div class="col-xs-12">
+            <label>
+              <input type="checkbox" ng-model="share.is_template"> <font class="text-weight--light">Share as a Template</font>
+            </label><br/> 
+            <label>
+              <input type="checkbox" ng-model="share.need_submission"> <font class="text-weight--light">Requires submission</font>
+            </label>
+          </div>
+        </div>
+
+        <div class="row form-group" ng-if="access.level == 2">
+          <div class="col-xs-12">
+            <label>
+              <input type="checkbox" ng-model="featured.submit"> <font class="text-weight--light">Consider this dyno to be published under Featured Dyno</font>
+            </label>
+          </div>
+        </div>
+
+        <div class="row form-group" ng-show="access.level == 1">
+          <div class="col-xs-12" ng-init="addedComponents()">
+            <label>
+              Type in the emails of the users you want to share your dyno with.
+            </label>
+            <select id="dyn-select2-emails" class="form-control" multiple="multiple" style="width:100%"></select>
+          </div>
+        </div>
+
+        <div class="row form-group" ng-show="is_published && (origin_access_level == 2) && (access.level == 2)">
+          <hr/>
+          <div class="col-xs-12" ng-init="addedComponents()">
+            <label>
+              Share URL
+            </label>
+            <input type="text" class="form-control" readonly="readonly" ng-model="share.url">
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="panel-footer">
+      <button class="btn btn-primary {{saving?'disabled':''}}" ng-click="publish()">{{saving?(is_published?'UPDATING':'PUBLISHING'):(is_published?'UPDATE':'PUBLISH')}}</button>
+    </div>
+  </div>
+</div>

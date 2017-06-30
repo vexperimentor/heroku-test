@@ -1,0 +1,10 @@
+<div class="container w-dyno">
+  <div class="dyn-info-container">
+    <div id="dyn-dyno-name" contenteditable="true">{{obj_dyno.body.info.name}}</div>
+    <div id="dyn-dyno-desc" contenteditable="true">{{obj_dyno.body.info.description}}</div>
+  </div>
+  <div class="dyn-btn-container">
+    <button class="btn btn-lg btn-default pull-right margin-left--5" ng-disabled="bigLoader.loading || submitLoader.loading" ng-if="require_submission" ng-click="onSubmit()">{{submitLoader.loading?'Submitting...':'Submit'}}</button>
+  </div>
+<!--  <div ng-init="setupMediumEditor()"></div> -->
+</div>

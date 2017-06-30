@@ -1,0 +1,46 @@
+<div id="blog" ng-if="!bigLoad.loading">
+
+	<!-- PAGE TITLE -->
+	<header id="page-title">
+		<div class="container">
+			<h1>{{objAssign.info.info.name}}</h1>
+
+			<ul class="breadcrumb">
+				<li><a href="index.html">Home</a></li>
+				<li><a href="#/assignments">Assignments</a></li>
+				<li class="active">Fill</li>
+			</ul>
+
+			<div class="dyn-btn-container">
+				<button class="btn btn-lg btn-default pull-right {{env.submitting?'disabled':''}}" ng-click="onSubmit()">{{env.submitting?'SUBMITTING...':'SUBMIT'}}</button>
+				<!-- <button class="btn btn-lg btn-default pull-right" ng-click="onSave()">SAVE</button> -->
+			</div>
+		</div>
+	</header>
+	<section class="container masonry-sidebar dyn-stylized-inputs" id="dyn-assign-fill">
+		<div class="row c-details">
+			<div class="col-md-9">
+				{{objAssign.info.info.description}}
+			</div>
+			<div class="col-md-3">
+				<span class="label label-default light">June 29, 2014</span><br>
+				<span class="label label-default light">By {{objAssign.info.owner_username}}</span>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="text-right">
+					<label>Preview Mode</label>&nbsp;<input id="switch-mode" type="checkbox" ng-model="env.preview_mode">
+				</div>
+				<hr style="margin: 10px 0px 10px 50%"/>
+				<div class="dyn-html-container">
+					<compiler-html id="dyn-html-stylized" model="objHtmls.stylized" ng-hide="env.preview_mode"></compiler-html>
+					<compiler-html id="dyn-html-preview" model="objHtmls.preview" ng-show="env.preview_mode"></compiler-html>
+				</div>
+			</div>
+		</div>
+	</section>
+	<div ng-init="initTopNav()"></div>
+	<div ng-init="initSwitch()"></div>
+</div>
+

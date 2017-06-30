@@ -1,0 +1,27 @@
+<div class="form-top">
+	<div class="form-top-left">
+		<h3>Forgot Password</h3>
+		<p>Enter your registered email and we'll send you instructions to reset your password.</p>
+	</div>
+	<div class="form-top-right">
+		<i class="fa fa-key"></i>
+	</div>
+</div>
+<div class="form-bottom">
+    <div class="ss-error" ng-show="validation_activity.invalid">
+        <div class="alert alert-danger" role="alert">
+            {{validation_activity.msg}}
+        </div>
+    </div>
+    <form role="form" name="forgotForm" ng-submit="onSubmit(forgotForm.$valid)" class="login-form" novalidate>
+    	<div class="form-group">
+    		<label class="sr-only" for="form-email">Email</label>
+        	<input type="email" name="email" placeholder="Email..." class="form-email form-control"  ng-model="info_obj.email" id="form-email" required>
+            <div class="help-block" ng-messages="forgotForm.email.$error" ng-if="forgotForm.email.$touched || validation_activity.invalid">
+                <p ng-message="email">Please enter valid email.</p>
+                <p ng-message="required">Email is required.</p>
+            </div>                      
+        </div>
+        <button type="submit" class="btn {{submission_activity.submitting?'disabled':''}}">{{submission_activity.submitting?'SUBMITTING...':'SUBMIT'}}</button>
+    </form>
+</div>

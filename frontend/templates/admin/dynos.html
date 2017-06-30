@@ -1,0 +1,12 @@
+<div class="content">
+	<div class="c-tabs">
+		<uib-tabset active="active">
+			<uib-tab index="0" heading="Categories" select="onTab(0)"></uib-tab>
+	    	<uib-tab index="1" heading="Tags" select="onTab(1)"></uib-tab>
+	    	<uib-tab index="2" heading="Featured" select="onTab(2)"></uib-tab>
+		</uib-tabset>
+	</div>
+	<div ng-include="'templates/admin/dynos/category.html'" ng-controller="categoryCtrl" ng-if="mode==0"></div>
+	<div ng-include="'templates/admin/dynos/tag.html'" ng-controller="tagCtrl" ng-if="mode==1"></div>
+	<div ng-include="'templates/admin/dynos/featured.html'" ng-controller="featuredCtrl" ng-if="mode==2"></div>
+</div>

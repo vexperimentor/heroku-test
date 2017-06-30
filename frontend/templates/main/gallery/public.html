@@ -1,0 +1,75 @@
+<div class="divider">
+  <i class="fa fa-ellipsis-h"></i>
+</div>
+
+<div class="row dyn-search">
+  <div class="col-xs-12">
+    <div class="input-group">
+      <input type="text" class="form-control" name="k" id="k" value="" placeholder="search..." ng-model="tmp.search" ng-keydown="$event.keyCode === 13 && filter_activity.setupSearch()"/>
+      <span class="input-group-btn">
+        <button class="btn btn-primary" ng-click="filter_activity.setupSearch()"><i class="fa fa-search"></i></button>
+      </span>
+    </div>
+  </div>
+</div>
+
+<div class="row margin--sandwitch">
+  <div class="col-md-2 padding-top--30">
+    <!-- TYPE OF DYNOS -->
+    <div class="widget">
+      <h4>CATEGORIES</h4>
+      <ul class="nav nav-list">
+        <li>
+          <a href="" ng-click="filter_activity.toggleAllCategory()"><i class="fa fa-circle{{(filter_activity.all_category)?'':'-o'}}"></i> All</a>
+        </li>
+        <li ng-repeat = "category in arr_categories">
+          <a href="" ng-click="filter_activity.toggleCategory(category)"><i class="fa fa-circle{{(filter_activity.categories[category._id])?'':'-o'}}"></i> {{category.name}}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="col-md-10">
+    <div class="row"  ng-show="filter_activity.search!=''">
+      <div class="col-xs-12">
+        <span class="label label-warning dyn-search">Searched with keyword "{{filter_activity.search}}" &nbsp;&nbsp;&nbsp;<i ng-click="filter_activity.cancelSearch()" class='fa fa-close'></i></span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4 col-sm-6 col-xs-12" ng-if="!bigLoader.loading" ng-repeat="dyno in arr_dynos | orderBy: sortDynoOnDate:true track by $index">
+        <!-- item -->
+        <div class="item-box">
+          <div class="item-box-desc">
+            <div class="content">
+              <h4>{{dyno.name}}</h4>
+              <div class="desc">{{dyno.description}}</div>
+            </div>
+            <div class="settings">
+              <div class="line">
+                <small>Type:</small> {{dyno.access.require_submission?'Assignment':'Reading List'}}{{dyno.access.template?', Template':''}}
+              </div>
+              <div class="line">
+                <small>Tags:</small> <span ng-repeat = "tag in dyno.tags" class="label label-default light tag-label">{{tag}}</span>
+              </div>
+              <div class="line">
+                <small>Category:</small> {{dyno.category_str}}
+              </span>
+              <div class="line">
+                <small>Author:</small> {{dyno.creator}}
+              </span>
+              <div class="line">
+                <small>Last Updated:</small> {{dyno.modified_at | datePrintDefault }}
+              </div>
+            </div>
+          </div>
+          <div class="action-box">
+            <a href="" ng-click="viewDyno(dyno)"><i class="fa fa-eye"></i> View</a><br>
+            <a ng-if="dyno.access.require_submission && !settings.is_mine" href="" ng-click="addToArchive(dyno, 'Assignments', 'others')"><i class="fa fa-plus"></i> Add to My Assignments</a>
+            <a ng-if="!dyno.access.require_submission && !settings.is_mine" href="" ng-click="addToArchive(dyno, 'Reading List', 'others')"><i class="fa fa-plus"></i> Add to Reading List</a><br>
+            <a ng-if="dyno.access.template && !settings.is_mine" href="" ng-click="addToArchive(dyno, 'Templates', 'template')"><i class="fa fa-plus"></i> Add to My Templates</a>
+          </div>
+        </div>
+        <!-- /item -->
+      </div>
+    </div>
+  </div>
+</div>

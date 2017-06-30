@@ -1,0 +1,28 @@
+<div id="blog" class="dyn-gallery" ng-cloak ng-init="initTopNav()">
+  <header id="page-title">
+    <div class="container">
+      <div class="dyn-info-container">
+        <h1 class="capitalized" ng-if="!settings.is_mine">{{::settings.title_prefix}} Public Gallery</h1>
+        <h1 class="capitalized" ng-if="settings.is_mine">My Public Gallery</h1>
+      </div>
+    </div>    
+  </header>
+
+  <span class="js_loader" ng-if="bigLoader.loading"><i class="fa fa-asterisk fa-spin"></i>LOADING</span>
+
+  <section class="container">
+    <div class="ss-error" ng-show="alert.visible" ng-click="alert.hide()" style="cursor: pointer">
+      <div class="alert alert-{{alert.type}}" ng-if="isActiveSession" role="alert">
+        {{alert.msg}}
+      </div>
+      <div class="alert alert-{{alert.type}}" ng-if="!isActiveSession" role="alert">
+        {{alert.msg}} <a href="#/signin">Sign In</a>
+      </div>
+    </div>
+  </section>
+  <section class="container gallery-featured" ng-if="!bigLoader.loading" ng-include="'templates/main/gallery/featured.html'" ng-controller="featuredGalleryController">
+  </section>
+  
+  <section class="container margin-top--block gallery-public" ng-if="!bigLoader.loading" ng-include="'templates/main/gallery/public.html'" ng-controller="publicGalleryController">
+  </section>
+</div>

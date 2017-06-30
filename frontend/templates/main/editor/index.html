@@ -1,0 +1,15 @@
+<div ng-include="'templates/main/editor/create/form.tpl'"></div>
+<div ng-include="'templates/field_attributes.tpl'"></div>
+
+<div id="dyn-overlay" ng-show="load_activity.loading">
+	<img src="img/loader.gif" class="img-absolute-center vert-middle">
+</div>
+<div class="dyn-content" ng-hide="load_activity.loading">
+	<header id="page-title" ng-include="'templates/main/editor/topbar.html'"></header>
+	<div id="dyn-editor-settings" ng-include="'templates/main/editor/settings.html'"></div>
+	<div id="dyn-editor-body" ng-show="breadcrumb_activity.current == 0" ng-include="'templates/main/editor/body.html'"></div>
+	<div id="dyn-editor-settings" ng-controller="editorSettingsCtrl" ng-show="breadcrumb_activity.current == 1" ng-include="'templates/main/editor/stages/settings.html'"></div>
+	<div id="dyn-editor-publish" ng-controller="editorPublishCtrl" ng-show="breadcrumb_activity.current == 2" ng-include="'templates/main/editor/stages/publish.html'"></div>
+</div>
+
+<div ng-init="initTopNav()"></div>

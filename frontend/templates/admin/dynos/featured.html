@@ -1,0 +1,35 @@
+<div class="dyn-overlay" ng-show="bigLoader.loading">
+	<img src="img/loader.gif" class="img-absolute-center vert-middle">
+</div>
+
+<div class="content table-responsive table-full-width">
+	<table class="table table-hover table-striped">
+		<thead>
+			<th width="20%">Author</th>
+			<th width="30%">Name</th>
+			<th width="30%">URL</th>
+			<th width="20%">Featured</th>
+		</thead>
+		<tbody>
+			<tr ng-repeat = "featured in arr_featured">
+				<td>
+					{{featured.owner_name}}
+				</td>
+				<td>
+					{{featured.dyno_name}}
+				</td>
+				<td>
+					<a href="#">{{featured.url}}</a>
+				</td>
+				<td>
+					<input bs-switch type="checkbox" ng-model="featured.status" switch-on-text="YES" switch-off-text="NO" switch-on-color="success" ng-change="onUpdate(featured)"> {{featured.saving?'saving...':''}}
+				</td>
+			</tr>
+			<tr ng-if = "arr_featured.length == 0">
+				<td colspan="4" align="center">
+					NO FEATURED DYNOS.
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

@@ -1,0 +1,36 @@
+<h2>{{panel_activity.variable_visible?'Fields':''}}
+<button class="float-right btn btn-xs" ng-click="onToggleVariablePanel()"><i class="fa fa-angle-double-{{panel_activity.variable_visible?'left':'right'}}"></i></button>
+<button class="float-left btn-default btn" ng-click="onToggleVarCreationPanel()" ng-show="panel_activity.variable_visible"><span class="glyphicon glyphicon-plus"></span></button>
+</h2>
+
+<div class="c-list mCustomScrollbar" ng-show="panel_activity.variable_visible" data-mcs-theme="minimal-dark">
+	<div ng-repeat-start = "var in obj_vars.items track by var._id" class="c-item" ng-click="panel_activity.variable_actions.setFocus(var._id)">
+		{{var.info.name}}
+		<button class="float-right c-btn-remove" ng-click="onDeleteVariable(var)"><span class="glyphicon glyphicon-remove"></span></button>
+	</div>	
+	<div ng-repeat-end class="c-details" ng-show="panel_activity.variable_actions.focus_id == var._id" ng-dblclick='onEditVariable(var)'>
+		<div class="c-desc">{{var.info.description}}</div>
+		<!-- <div class="c-name">{{var.info.name}}</div> -->
+		<div class="c-type">Type : <b>{{var.info.v_type | typePrint}}</b></div>
+		<div class="c-default" ng-if="var.info.v_default">Default : <b class="{{(var.info.v_type=='Paragraph')?'var-default-mimic-pre':''}}">{{var.info.v_default | defaultPrint:var.info.v_type}}</b></div>		
+		<div class="c-rules">
+			<rule-details rules = '{{var.info.rules[0]}}'></rule-details>
+			<!-- Validation : 
+			<ul>	
+				<li ng-repeat = "(key, value) in var.info.rules[0] track by key" ng-if="key!='_id'">
+				{{key | ruleName}} : <b>{{value}}</b>
+				</li>
+			</ul> -->
+		</div>
+	</div>
+</div>
+<div ng-init="setupVarScroll()"></div>
+<!---
+<div class="accordion" ng-show="panel_activity.variable_visible">
+  <h3 ng-repeat-start="var in obj_vars.items track by var._id">{{var.info.name}}</h3>
+  <div ng-repeat-end>
+    <i>{{var.info.description}}</i>
+    <div ng-if="$last" ng-init="setupVarAccordion()"></div>
+  </div>
+</div>
+-->

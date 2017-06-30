@@ -1,0 +1,6 @@
+<div id="dyn-preview-panel" class="dyn-stylized-inputs dyn-view">
+  <compiler-html id="dyn-html-stylized" model="objHtmls.stylized"></compiler-html>
+  <div ng-if = 'embeddedDyno'>
+    <button class="btn btn-lg btn-primary" ng-disabled="bigLoader.loading || submitLoader.loading" ng-if="require_submission" ng-click="onSubmit()">{{submitLoader.loading?'Submitting...':'Submit'}}</button>
+  </div>
+</div>

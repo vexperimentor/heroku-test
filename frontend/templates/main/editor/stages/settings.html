@@ -1,0 +1,88 @@
+<div class="dyn-wrapper">
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Dyno Settings</h3>
+  </div>
+  <div class="panel-body">
+  	<div id="dyn-overlay" ng-show="bigLoader.loading">
+  		<img src="img/loader.gif" class="img-absolute-center vert-middle">
+  	</div>
+  <!-- Title and Description -->
+  	<div ng-if="!bigLoader.loading">
+    <div class="row form-group">
+    	<div class="col-xs-4 text-right">
+    		<label>Title</label>
+    	</div>
+    	<div class="col-xs-8">
+    		<input type="text" class="form-control" placeholder="Dyno Title" ng-model="settings.info.title">
+    	</div>
+    </div>
+    <div class="row form-group">
+    	<div class="col-xs-4 text-right">
+    		<label>Description</label>
+    	</div>
+    	<div class="col-xs-8">
+    		<textarea class="form-control" placeholder="Dyno Description" ng-model="settings.info.description"></textarea>
+    	</div>
+    </div>
+
+  <!-- Category and Sub-category -->
+  	<div class="row form-group">
+  		<div class="col-xs-4 text-right">
+  			<label>Category</label>
+  		</div>
+  		<div class="col-xs-8">
+  			<div ng-if="settings.filter.parent_category!=0">
+	  			<select class="form-control margin-bottom--5" ng-model="settings.filter.parent_category">
+	  				<option ng-repeat="category in tree_category.parents track by $index" value="{{category._id}}" ng-selected="settings.filter.parent_category==category._id">{{category.name}}</option>
+	  			</select>
+
+	  			<select class="form-control " ng-model="settings.filter.child_category">
+	  				<option ng-repeat="category in child_categories track by $index" value="{{category._id}}" ng-selected="settings.filter.child_category==category._id">{{category.name}}</option>
+	  			</select>
+  			</div>
+  		</div>
+  	</div>
+
+  <!-- Tags -->
+  	<div class="row form-group">
+  		<div class="col-xs-4 text-right">
+  			<label>Tags</label>
+  		</div>
+  		<div class="col-xs-8" ng-init="addedComponents()" >
+	  		<select id="dyn-select2-tags" class="form-control" multiple="multiple" style="width:100%"></select>
+  		</div>
+  	</div>
+
+  	<hr />
+  <!-- Enable? -->
+  	<div class="row form-group">
+  		<div class="col-xs-4 text-right">
+  			<label>Enable Comments</label>
+  		</div>
+  		<div class="col-xs-8">
+  			<input bs-switch type="checkbox" ng-model="settings.toggles.enableComments" switch-on-text="On" switch-off-text="Off" switch-on-color="success">
+  		</div>
+  	</div>
+
+  	<div class="row form-group">
+  		<div class="col-xs-4 text-right">
+  			<label>Rating Allowed</label>
+  		</div>
+  		<div class="col-xs-8">
+  			<input bs-switch type="checkbox" ng-model="settings.toggles.ratingAllowed" switch-on-text="On" switch-off-text="Off" switch-on-color="success">
+  		</div>
+  	</div>
+
+  	<div class="row form-group">
+  		<div class="col-xs-4 text-right">
+  			<label>Paid Dyno</label>
+  		</div>
+  		<div class="col-xs-8">
+  			<input bs-switch type="checkbox" ng-model="settings.toggles.paidDyno" switch-on-text="On" switch-off-text="Off" switch-on-color="success">
+  		</div>
+  	</div>
+  	</div>
+  </div>
+</div>
+</div>

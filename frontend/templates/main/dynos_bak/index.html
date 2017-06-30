@@ -1,0 +1,125 @@
+<div id="blog">
+
+	<!-- PAGE TITLE -->
+	<header id="page-title">
+		<div class="container">
+			<h1>My Dynos</h1>
+
+			<ul class="breadcrumb">
+				<li><a href="index.html">Home</a></li>
+				<li class="active">Dynos</li>
+			</ul>
+
+			<div class="dyn-btn-container">
+				<button class="btn btn-lg btn-default pull-right" ng-click="onCreateDyno()">CREATE</button>
+			</div>
+		</div>
+	</header>
+
+	<section class="container masonry-sidebar">
+		<div class="row">
+			<div class="col-md-9">
+
+				<!-- Masonry Loader -->
+				<span class="js_loader" ng-if="load_activity.loading"><i class="fa fa-asterisk fa-spin"></i>LOADING</span>
+
+				<ul class="masonry-list" ng-if="!load_activity.loading" ng-include="'templates/main/dynos/list.html'"></ul>
+
+				<!-- PAGINATION -->
+				<div class="text-center">
+					<ul class="pagination">
+						<li><a href="#"><i class="fa fa-chevron-left"></i></a></li>
+						<li class="active"><a href="#">1</a></li>
+						<li><a href="#">2</a></li>
+						<li><a href="#">3</a></li>
+						<li><a href="#">4</a></li>
+						<li><a href="#">5</a></li>
+						<li><a href="#"><i class="fa fa-chevron-right"></i></a></li>
+					</ul>
+				</div>
+				<!-- /PAGINATION -->
+
+			</div>
+
+			<div class="col-md-3">
+
+
+				<!-- blog search -->
+				<div class="widget">
+
+					<h3>BLOG SEARCH</h3>
+
+					<form method="get" action="#" class="input-group">
+						<input type="text" class="form-control" name="k" id="k" value="" placeholder="search..." />
+						<span class="input-group-btn">
+							<button class="btn btn-primary"><i class="fa fa-search"></i></button>
+						</span>
+					</form>
+				</div>
+
+				<!-- recent work -->
+				<div class="widget">
+
+					<h4>RECENT WORK</h4>
+
+					<a class="popup-image thumb" href="assets/images/preview/slider/1.jpg">
+						<img src="assets/images/1x1.png" class="img-responsive" data-src="holder.js/85x85/#888:#555555/auto/" alt="img" />
+					</a>
+					<a class="popup-video thumb" href="http://www.youtube.com/watch?v=kh29_SERH0Y?rel=0">
+						<img src="assets/images/1x1.png" class="ajax-project img-responsive" data-src="holder.js/85x85/#676767:#555555/auto/" alt="img" />
+					</a>
+					<a class="popup-video thumb" href="http://vimeo.com/23630702">
+						<img src="assets/images/1x1.png" class="ajax-project img-responsive" data-src="holder.js/85x85/#888:#555555/auto/" alt="img" />
+					</a>
+
+					<a class="external ajax-project thumb" href="project-external-1.html">
+						<img src="assets/images/1x1.png" class="ajax-project img-responsive" data-src="holder.js/85x85/#676767:#555555/auto/" alt="img" />
+					</a>
+					<a class="external ajax-project thumb" href="project-external-2.html">
+						<img src="assets/images/1x1.png" class="ajax-project img-responsive" data-src="holder.js/85x85/#888:#555555/auto/" alt="img" />
+					</a>
+					<a class="external ajax-project thumb" href="project-external-3.html">
+						<img src="assets/images/1x1.png" class="ajax-project img-responsive" data-src="holder.js/85x85/#676767:#555555/auto/" alt="img" />
+					</a>
+
+					<div class="clearfix"></div>
+				</div>
+
+
+				<!-- categories -->
+				<div class="widget">
+
+					<h4>CATEGORIES</h4>
+
+					<ul class="nav nav-list">
+						<li><a href="#"><i class="fa fa-circle-o"></i> Photos</a></li>
+						<li><a href="#"><i class="fa fa-circle-o"></i> Videos</a></li>
+						<li><a href="#"><i class="fa fa-circle-o"></i> Photoshop</a></li>
+						<li><a href="#"><i class="fa fa-circle-o"></i> Development</a></li>
+						<li><a href="#"><i class="fa fa-circle-o"></i> Technology</a></li>
+					</ul>
+
+				</div>
+
+				<!-- recent posts -->
+				<div class="widget">
+
+					<h4>RECENT POSTS</h4>
+
+					<ul>
+						<li><a href="blog-single-sidebar-left.html"><i class="fa fa-sign-out"></i> This is a Gallery Post</a> <small>23 June 2013 / 12:43</small></li>
+						<li><a href="blog-single-sidebar-left.html"><i class="fa fa-sign-out"></i> Blog Post With Text Only</a> <small>23 June 2013 / 12:43</small></li>
+						<li><a href="blog-single-sidebar-left.html"><i class="fa fa-sign-out"></i> This is an Audio Post</a> <small>23 June 2013 / 12:43</small></li>
+						<li><a href="blog-single-sidebar-left.html"><i class="fa fa-sign-out"></i> This is a Video Post</a> <small>23 June 2013 / 12:43</small></li>
+						<li><a href="blog-single-sidebar-left.html"><i class="fa fa-sign-out"></i> An awsome post</a> <small>23 June 2013 / 12:43</small></li>
+					</ul>
+
+				</div>
+
+			</div>
+
+		</div>
+	</section>
+
+</div>
+<div ng-init="initTopNav()"></div>

@@ -1,0 +1,31 @@
+<div class="form-top">
+	<div class="form-top-left">
+		<h3>Reset Password</h3>
+		<p>Please enter your new password.</p>
+	</div>
+	<div class="form-top-right">
+		<i class="fa fa-key"></i>
+	</div>
+</div>
+<div class="form-bottom">
+    <div class="ss-error" ng-show="validation_activity.invalid">
+        <div class="alert alert-danger" role="alert">
+            {{validation_activity.msg}}
+        </div>
+    </div>
+    <form role="form" name="resetForm" ng-submit="onReset(resetForm.$valid)" class="login-form" novalidate>
+    	<div class="form-group">
+            <label class="sr-only" for="form-password">Password</label>
+            <input type="password" name="password" ng-model="info_obj.password" placeholder="Password..." class="form-email form-control" required ng-minlength="6">            
+        </div>
+        <div class="form-group">
+            <label class="sr-only" for="form-password-confirm">Confirm Password</label>
+            <input type="password" name="form-password-confirm" ng-model="info_obj.password_confirm" placeholder="Confirm Password..." class="form-email form-control">
+            <div class="help-block" ng-messages="resetForm.password.$error" ng-if="resetForm.password.$touched || validation_activity.invalid">
+                <p ng-message="minlength">Password is too short.</p>
+                <p ng-message="required">Password is required.</p>
+            </div>
+        </div>
+        <button type="submit" class="btn {{submission_activity.submitting?'disabled':''}}">{{submission_activity.submitting?'SUBMITTING...':'SUBMIT'}}</button>
+    </form>
+</div>
